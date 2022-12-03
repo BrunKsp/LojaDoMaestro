@@ -1,0 +1,157 @@
+{%load static%}
+
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{%static
+            '/node_modules/bootstrap/dist/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <title>Loja Do Maestro</title>
+
+    </head>
+
+    <body>
+        <body style="min-width : 372px;">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary
+                border-bottom shadow-sm mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="/"><b>Loja Do Maestro</b></a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/">Principal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white"
+                                    href="https://api.whatsapp.com/send?1=pt_BR&phone=555596714956">Contato</a>
+                            </li>
+                        </ul>
+                        <div class="align-self-center">
+                            <form class="justify-content-center
+                                justify-content-md-start mb-3 mb-md-0">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control"
+                                        placeholder="Digite aqui o que procura">
+                                    <button class="btn btn-ligth">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="align-self-end">
+
+                            <ul class="navbar-nav">
+
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/user.html"
+                                        class="nav-link text-white">Minha Conta</a>
+                                </li>
+                                {% else %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/register" class="nav-link
+                                        text-white">Quero Me Cadastrar</a>
+                                </li>
+
+
+
+                                <li class="nav-item">
+                                    <a href="/accounts/login" class="nav-link
+                                        text-white">Entrar</a>
+                                </li>
+                                {%endif%}
+                                
+                                
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/user.html"
+                                        class="nav-link text-white">Sair</a>
+                                </li>
+                                {% endif %}
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-white">
+                                        <svg class="bi "width="24" height="24"
+                                            fill="currentColor">
+                                            <use
+                                                xlink:href="{% static
+                                                '/images/cart3.svg'%}"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </nav>
+                    {% block 'main' %}
+                    {{% block content %}
+                    {% block 'produto' %}
+                    {% block 'carrinho' %}
+                    {% endblock %}
+                    {% endblock %}
+                    {% endblock %}
+                    {% endblock %}
+                    <footer class="border-top text-muted bg-light">
+                        <div class="container">
+                            <div class="row py-3">
+                                <div class="col-12 col-md-4 text-center">
+                                    &copy; 2022 - Lojinha Do Maestro
+                                </div>
+                                <div class="col-12 col-md-4 text-center">
+                                    <a href="#" class="text-decoration-none
+                                        text-dark">
+                                        Política de Privacidade
+                                    </a><br>
+                                    <a href="#" class="text-decoration-none
+                                        text-dark">
+                                        Termos de Uso
+                                    </a><br>
+                                    <a href="#" class="text-decoration-none
+                                        text-dark">
+                                        Quem Somos
+                                    </a><br>
+                                    <a href="#" class="text-decoration-none
+                                        text-dark">
+                                        Trocas e Devoluções
+                                    </a>
+                                </div>
+                                <div class="col-12 col-md-4 text-center">
+                                    <a href="#" class="text-decoration-none
+                                        text-dark">
+                                        Contato pelo Site
+                                    </a><br>
+                                    E-mail: <a href="#"
+                                        class="text-decoration-none text-dark">
+                                        ToninhoMeneghetti@org.com
+                                    </a><br>
+                                    Telefone: <a href="#"
+                                        class="text-decoration-none text-dark">
+                                        190
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+
+
+
+
+
+                    <script
+                        src="{%static
+                        '/node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+                        %}"></script>
+                </body>
+            </html>

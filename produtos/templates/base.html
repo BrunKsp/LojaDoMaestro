@@ -7,9 +7,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{%static
-            '/node_modules/bootstrap/dist/css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <title>Loja Do Maestro</title>
 
     </head>
@@ -52,7 +51,7 @@
                                 {% if user.is_authenticated %}
 
                                 <li class="nav-item">
-                                    <a href="/accounts/user.html"
+                                    <a href="/accounts/cliente"
                                         class="nav-link text-white">Minha Conta</a>
                                 </li>
                                 {% else %}
@@ -74,35 +73,24 @@
                                 {% if user.is_authenticated %}
 
                                 <li class="nav-item">
-                                    <a href="/accounts/user.html"
+                                    <a href="/accounts/logout"
                                         class="nav-link text-white">Sair</a>
                                 </li>
                                 {% endif %}
                                 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white">
-                                        <svg class="bi "width="24" height="24"
-                                            fill="currentColor">
-                                            <use
-                                                xlink:href="{% static
-                                                '/images/cart3.svg'%}"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-
+                                    
+                                </li>
                                 </ul>
                             </div>
                         </div>
 
                     </nav>
-                    {% block 'main' %}
-                    {{% block content %}
-                    {% block 'produto' %}
-                    {% block 'carrinho' %}
+                    
+                    {% block content %}
                     {% endblock %}
-                    {% endblock %}
-                    {% endblock %}
-                    {% endblock %}
+        
+                    
                     <footer class="border-top text-muted bg-light">
                         <div class="container">
                             <div class="row py-3">
@@ -148,7 +136,7 @@
 
 
 
-
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
                     <script
                         src="{%static
                         '/node_modules/bootstrap/dist/js/bootstrap.bundle.js'

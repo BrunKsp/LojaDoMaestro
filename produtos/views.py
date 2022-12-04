@@ -9,6 +9,8 @@ class ProdutoView():
     def listaProd (request):
         
         search = request.GET.get('search')
+       
+
 
         if search :
             produtos = Produto.objects.filter(name_icontains=search)
@@ -68,15 +70,7 @@ class ProdutoView():
 
 
 
-class Compras(Produto):
-    @login_required
-    def carrinho(request,id,self ):
-        if request.method == 'GET':
-            
-            produtos = get_object_or_404(Produto ,pk = id)  
-            
-            conta = self.preco + self.preco
-            return render(request,'carrinho/carrinho.html',{'produto':produtos,'conta':conta})
+
 
     
 

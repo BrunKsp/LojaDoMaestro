@@ -1,0 +1,192 @@
+{%load static%}
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="{%static '/node_modules/bootstrap/dist/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static '/node_modules/bootstrap-icons/font/bootstrap-icons.css'%}">
+    <link rel="stylesheet" href="{%static '/css/style.css'%}">
+
+    <title>Área do Cliente</title>
+</head>
+
+<body>
+    <div class="d-flex flex-column wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary
+                border-bottom shadow-sm mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="/"><b>Loja Do Maestro</b></a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/">Principal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white"
+                                    href="https://api.whatsapp.com/send?1=pt_BR&phone=555596714956">Contato</a>
+                            </li>
+                        </ul>
+                        <div class="align-self-center">
+                            <form class="justify-content-center
+                                justify-content-md-start mb-3 mb-md-0">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control"
+                                        placeholder="Digite aqui o que procura">
+                                    <button class="btn btn-ligth">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="align-self-end">
+
+                            <ul class="navbar-nav">
+
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/cliente"
+                                        class="nav-link text-white">Minha Conta</a>
+                                </li>
+                                {% else %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/register" class="nav-link
+                                        text-white">Quero Me Cadastrar</a>
+                                </li>
+
+
+
+                                <li class="nav-item">
+                                    <a href="/accounts/login" class="nav-link
+                                        text-white">Entrar</a>
+                                </li>
+                                {%endif%}
+                                
+                                
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item">
+                                    <a href="/accounts/login"
+                                        class="nav-link text-white">Sair</a>
+                                </li>
+                                {% endif %}
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-dark">
+                                        <svg class="bi "width="24" height="24"
+                                            fill="currentColor">
+                                            <use
+                                                xlink:href="{% static
+                                                '/images/cart3.svg'%}"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </nav>
+ 
+        <main class="flex-fill">
+            <div class="container">
+                <div class="align-self-center">
+                    <h1>Minha Conta</h1>
+                    <div class="row gx-3">
+                        <div class="col-4">
+                            <div class="list-group">
+                                <a href="/accounts/dados" class="list-group-item list-group-item-action bg-primary text-light">
+                                    <i class="bi-person fs-6"></i> Dados Pessoais
+                                </a>
+                                <a href="/cliente_contatos.html" class="list-group-item list-group-item-action">
+                                    <i class="bi-mailbox fs-6"></i> Contatos
+                                </a>
+                                <a href="/cliente_endereco.html" class="list-group-item list-group-item-action">
+                                    <i class="bi-house-door fs-6"></i> Endereço
+                                </a>
+                                <a href="/cliente_pedidos.html" class="list-group-item list-group-item-action">
+                                    <i class="bi-truck fs-6"></i> Pedidos
+                                </a>
+                                <a href="/cliente_favoritos.html" class="list-group-item list-group-item-action">
+                                    <i class="bi-heart fs-6"></i> Favoritos
+                                </a>
+                                <a href="/cliente_senha.html" class="list-group-item list-group-item-action">
+                                    <i class="bi-lock fs-6"></i> Alterar Senha
+                                </a>
+                                <a href="/accounts/logout" class="list-group-item list-group-item-action">
+                                    <i class="bi-door-open fs-6"></i> Sair
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-8">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="border-top text-muted bg-light">
+            <div class="container">
+                <div class="row py-3">
+                    <div class="col-12 col-md-4 text-center">
+                        &copy; 2022 - Lojinha Do Maestro
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <a href="#" class="text-decoration-none
+                            text-dark">
+                            Política de Privacidade
+                        </a><br>
+                        <a href="#" class="text-decoration-none
+                            text-dark">
+                            Termos de Uso
+                        </a><br>
+                        <a href="#" class="text-decoration-none
+                            text-dark">
+                            Quem Somos
+                        </a><br>
+                        <a href="#" class="text-decoration-none
+                            text-dark">
+                            Trocas e Devoluções
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <a href="#" class="text-decoration-none
+                            text-dark">
+                            Contato pelo Site
+                        </a><br>
+                        E-mail: <a href="#"
+                            class="text-decoration-none text-dark">
+                            ToninhoMeneghetti@org.com
+                        </a><br>
+                        Telefone: <a href="#"
+                            class="text-decoration-none text-dark">
+                            190
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="{%static '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
+</body>
+
+</html>
